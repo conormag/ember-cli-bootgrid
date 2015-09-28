@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-bootgrid",
   "version": "0.0.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember-CLI addon for using jQuery Bootgrid in Ember Applications.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -37,7 +37,7 @@
     "ember-try": "0.0.6"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon","ember-cli","bootgrid"
   ],
   "dependencies": {
     "ember-cli-htmlbars": "0.7.9",

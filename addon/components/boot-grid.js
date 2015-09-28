@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   tagName: 'table',
   classNameBindings: ['class'],
 
-  headers: Ember.A([]),
+  headers: undefined,
   rows: undefined,
   identifier: undefined,
 
