@@ -2,7 +2,8 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('boot-grid', 'Integration | Component | boot grid', {
-  integration: true
+  integration: true,
+  needs: ['component:each-keys']
 });
 
 test('it renders', function(assert) {
@@ -22,5 +23,5 @@ test('it renders', function(assert) {
     {{/boot-grid}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), '');
 });

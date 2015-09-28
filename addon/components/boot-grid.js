@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   tagName: 'table',
   classNameBindings: ['class'],
 
-  headers: undefined,
+  headers: Ember.A([]),
   rows: undefined,
   identifier: undefined,
 
@@ -15,28 +15,30 @@ export default Ember.Component.extend({
 	rowSelect: undefined,
 	keepSelection: undefined,
 
-  headerIds: function() {
-  	var headers = this.get('headers');
-  	return headers.map(function(i,idx){
-  		var str='';
-  		console.log(idx);
-  		if (!i.name) {
-  			i.name="column-" + idx;
-  		} 
-  		if (i.id) {
-  			str+=' data-column-id="' + i.id + '"'
-  		} else {
-  			str+=' data-column-id="' + i.name.dasherize() + '"'
-  		}
-  		if (i.datatype) {
-  			str+=' data-type="' + i.datatype + '"'
-  		}
-  		if (i.identifier) {
-  			str+=' data-identifier="' + i.identifier + '"'
-  		}  
-  		i.dataAPI = str;		
-  	});
-  }.property('headers'),
+  // headerIds: function() {
+  // 	var headers = this.get('headers');
+  // 	if (headers) {
+	 //  	return headers.map(function(i,idx){
+	 //  		var str='';
+	 //  		console.log(idx);
+	 //  		if (!i.name) {
+	 //  			i.name="column-" + idx;
+	 //  		} 
+	 //  		if (i.id) {
+	 //  			str+=' data-column-id="' + i.id + '"';
+	 //  		} else {
+	 //  			str+=' data-column-id="' + i.name.dasherize() + '"';
+	 //  		}
+	 //  		if (i.datatype) {
+	 //  			str+=' data-type="' + i.datatype + '"';
+	 //  		}
+	 //  		if (i.identifier) {
+	 //  			str+=' data-identifier="' + i.identifier + '"';
+	 //  		}  
+	 //  		i.dataAPI = str;		
+	 //  	});  		
+  // 	}
+  // }.property('headers'),
 
   didInsertElement: function() {
   	this.$().bootgrid({
