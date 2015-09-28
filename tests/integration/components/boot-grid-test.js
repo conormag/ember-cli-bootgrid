@@ -3,7 +3,6 @@ import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('boot-grid', 'Integration | Component | boot grid', {
   integration: true,
-  needs: ['component:each-keys']
 });
 
 test('it renders', function(assert) {
