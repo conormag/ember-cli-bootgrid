@@ -1,1 +1,23 @@
+	<thead>
+		<tr>
+		{{#each headers as |header|}}
+			<th 
+				data-column-id="{{header.id}}" 
+				data-type="{{header.type}}"
+				data-identifier="{{header.identifier}}">
+				{{header.name}}
+			</th>
+		{{/each}}
+		<th data-column-id="x">x</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each rows as |row|}}
+			{{#each-keys object=row as |key value|}}
+				<td>{{value}}</td>
+			{{/each-keys}}
+		{{/each}}
+	</tbody>
+
 {{yield}}
