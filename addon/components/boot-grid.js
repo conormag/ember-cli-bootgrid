@@ -6,55 +6,31 @@ export default Ember.Component.extend({
   tagName: 'table',
   classNameBindings: ['class'],
 
-  headers: undefined,
+  header: undefined,
   rows: undefined,
-  identifier: undefined,
 
 	selection: undefined,
 	multiSelect: undefined,
 	rowSelect: undefined,
 	keepSelection: undefined,
 
-  // headerIds: function() {
-  // 	var headers = this.get('headers');
-  // 	if (headers) {
-	 //  	return headers.map(function(i,idx){
-	 //  		var str='';
-	 //  		console.log(idx);
-	 //  		if (!i.name) {
-	 //  			i.name="column-" + idx;
-	 //  		} 
-	 //  		if (i.id) {
-	 //  			str+=' data-column-id="' + i.id + '"';
-	 //  		} else {
-	 //  			str+=' data-column-id="' + i.name.dasherize() + '"';
-	 //  		}
-	 //  		if (i.datatype) {
-	 //  			str+=' data-type="' + i.datatype + '"';
-	 //  		}
-	 //  		if (i.identifier) {
-	 //  			str+=' data-identifier="' + i.identifier + '"';
-	 //  		}  
-	 //  		i.dataAPI = str;		
-	 //  	});  		
-  // 	}
-  // }.property('headers'),
+	setup: Ember.on('init', function() {
+		console.log("header:",this.get('header'));
+		// 'navigation' enables or disables header and/or footer. Default value is 3.
+    // 0 for none, 1 for header, 2 for footer and 3 for both.
+    this.set('navigation', (this.get('header')) ? 3 : 0);
+	}),
+
 
   didInsertElement: function() {
   	this.$().bootgrid({
-      css: {
-	      icon: 'zmdi icon',
-	      iconColumns: 'zmdi-view-module',
-	      iconDown: 'zmdi-expand-more',
-	      iconRefresh: 'zmdi-refresh',
-	      iconUp: 'zmdi-expand-less'
-      },
-      templates : this.get('templates') ? this.get('templates') : {},
-
-      selection: this.get('selection') ? this.get('selection') : false,
-      multiSelect: this.get('multiSelect') ? this.get('multiSelect') : false,
-      rowSelect: this.get('rowSelect') ? this.get('rowSelect') : false,
-      keepSelection: this.get('keepSelection') ? this.get('keepSelection') : false,
+  		css: this.getWithDefault('css', {}),
+	    templates: this.getWithDefault('templates', {}),
+      navigation: this.getWithDefault('navigation',0),
+      selection: this.getWithDefault('selection', false),
+      multiSelect: this.getWithDefault('multiSelect',false),
+      rowSelect: this.getWithDefault('rowSelect',false),
+      keepSelection: this.getWithDefault('keepSelection',false),
     });
   }
 });

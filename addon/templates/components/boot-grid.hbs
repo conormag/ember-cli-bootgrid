@@ -1,12 +1,12 @@
-	{{#if headers}}
+	{{#if header}}
 		<thead>
 			<tr>
-			{{#each headers as |header|}}
+			{{#each header as |th|}}
 				<th 
-					data-column-id="{{header.id}}" 
-					data-type="{{header.type}}"
-					data-identifier="{{header.identifier}}">
-					{{header.name}}
+					data-column-id="{{th.id}}" 
+					data-type="{{th.type}}"
+					data-identifier="{{th.identifier}}">
+					{{th.name}}
 				</th>
 			{{/each}}
 			</tr>

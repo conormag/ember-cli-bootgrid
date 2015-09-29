@@ -1,3 +1,23 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Welcome to Ember - ember-cli-bootgrid test</h2>
 
+<ol>
+	<li>
+		<h2>Empty Component</h2>
+		{{boot-grid}}
+	</li>
+	<li>
+		<h2>Empty Block Component</h2>
+		{{#boot-grid}}
+			block text
+		{{/boot-grid}}
+	</li>
+	<li>
+		<h2>Basic Component</h2>
+			{{boot-grid 
+					header=content.table1.headers 
+					rows=content.table1.rows}}
+	</li>
+
+
+</ol>
 {{outlet}}
