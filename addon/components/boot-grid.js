@@ -15,7 +15,6 @@ export default Ember.Component.extend({
 	keepSelection: undefined,
 
 	setup: Ember.on('init', function() {
-		console.log("header:",this.get('header'));
 		// 'navigation' enables or disables header and/or footer. Default value is 3.
     // 0 for none, 1 for header, 2 for footer and 3 for both.
     this.set('navigation', (this.get('header')) ? 3 : 0);

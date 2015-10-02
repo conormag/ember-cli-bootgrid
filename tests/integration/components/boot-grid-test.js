@@ -39,8 +39,6 @@ test('table rows created correctly', function(assert) {
   // Handle any actions with this.on('myAction', function(val) { ... });
   this.set('header',header);
   this.set('rows',rows);
-
-  console.log(this.$().find('tr').length);
   
   this.render(hbs`
     {{#boot-grid  header=header rows=rows}}
