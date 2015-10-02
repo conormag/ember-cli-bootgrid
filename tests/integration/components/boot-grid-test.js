@@ -5,7 +5,7 @@ moduleForComponent('boot-grid', 'Integration | Component | boot grid', {
   integration: true,
 });
 
-var headers = [
+var header = [
         {id: 'id', name: "id", datatype: "numeric", identifier: true}, 
         {id: 'sender', name: "Sender", datatype: "string"}, 
         {id: 'recevied', name: "Received", datatype: "string"}
@@ -22,7 +22,7 @@ test('identifier value is set', function(assert) {
   `);
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
-  this.set('header',headers);
+  this.set('header',header);
   this.set('rows',rows);
 
   assert.equal(this.$().find('th[data-identifier="true"]').text().trim(),"id", 'data-identifer correctly set');
@@ -37,7 +37,7 @@ test('table rows created correctly', function(assert) {
   `);
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
-  this.set('header',headers);
+  this.set('header',header);
   this.set('rows',rows);
 
   console.log(this.$().find('tr').length);
